@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6950bd-dbca-4838-94da-a0675e40f4e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyEndedListDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/out/production/LinkedList/pkg1/DoublyEndedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/out/production/LinkedList/pkg1/DoublyEndedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/out/production/LinkedList/pkg1/DoublyEndedListDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/out/production/LinkedList/pkg1/DoublyEndedListDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/src/pkg1/DoublyEndedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyEndedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/src/pkg1/DoublyEndedListDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyEndedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyEndedListDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/src/doublyLinkedList/DoublyLinkedList.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,5 +46,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
