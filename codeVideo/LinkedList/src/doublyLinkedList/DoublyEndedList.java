@@ -1,4 +1,6 @@
-package pkg1;
+package doublyLinkedList;
+
+import pkg1.Node;
 
 public class DoublyEndedList {
     private Node head;
@@ -27,5 +29,20 @@ public class DoublyEndedList {
         }
         result += "}";
         return  result;
+    }
+
+    public static class DoublyLinkedListDemo {
+        public static void main(String[] args) {
+            DoublyLinkedList integer = new DoublyLinkedList();
+
+            integer.insertAtHead(1);
+            integer.insertAtHead(4);
+            integer.insertAtHead(12);
+            integer.insertAtHead(34);
+            integer.insertAtHead(25);
+            integer.insertAtHead(15);
+            integer.insertAtHead(10);
+            System.out.println(integer);
+        }
     }
 }
