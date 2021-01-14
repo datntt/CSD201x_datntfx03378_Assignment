@@ -144,8 +144,41 @@ public class Main_Sort {
 
     // linear search element in the array.
     private static void search (int x) {
+        int[] c = new int[a.length];
+        System.arraycopy(a,0, c,0, a.length);
+        int e = 0;
+        for (int j : c) {
+            if (j > x) {
+                e++;
+            }
+        }
+        //input lớn hơn các ptu trong array
+        if(e == 0) {
+            System.out.println("null");
+            return;
+        }
+        //
+        int[] b = new int[e];
+        int z = 0;
+        for (int i = 0; i < c.length; i++) {
+            if(c[i] > x) {
+                b[z] = i;
+                z++;
+            }
+        }
 
-
+        for (int i : b) {
+            System.out.print(i + " ");
+        }
+        try {
+            OutputStream os = new FileOutputStream("out4.txt");
+            for(int w : b) {
+                os.write(w);
+            }
+            os.close();
+        } catch (IOException ex) {
+            System.out.println("Exception");
+        }
     }
 
     // binary search
@@ -256,15 +289,8 @@ public class Main_Sort {
                     System.out.print("Input value: ");
                     int x = checkIntNumber();
                     System.out.println();
-                    //
-
-                    /*try {
-                        OutputStream os = new FileOutputStream("out4.txt");
-                        os.write(result + 1);
-                        os.close();
-                    } catch (IOException e) {
-                        System.out.println("Exception");
-                    }*/
+                    System.out.print("Chỉ số là : ");
+                    search(x);
                 }
                 case 7 -> {
                     System.out.println("Choice: 7");
