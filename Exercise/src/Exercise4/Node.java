@@ -1,8 +1,8 @@
 package Exercise4;
 
 public class Node {
-    private Node next;
-    private Person info;
+    Node next;
+    Person info;
 
     public Node(Person x, Node p) {
         this.next = p;
@@ -11,5 +11,21 @@ public class Node {
 
     public Node(Person x) {
         this (x, null);
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    public Person getInfo() {
+        return info;
+    }
+
+    public void setInfo(Person info) {
+        this.info = info;
     }
 }

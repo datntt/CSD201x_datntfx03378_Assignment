@@ -31,9 +31,9 @@ public class Main_Sort {
 
     // read file save array.
     private static void read_file() throws IOException {
-
+        File fileUrl = new File("\\hoctap\\github\\CSD201x_datntfx03378_Assignment\\Assignment\\ASM1\\CSD201x_AS1_fx03378\\in.txt");
         // url
-        FileReader FileUrl = new FileReader("\\hoctap\\CSD201x_AS1_fx03378\\in.txt");
+        FileReader FileUrl = new FileReader(fileUrl);
         int i;
         int e = 0;
         while (FileUrl.read() != -1) {
@@ -41,7 +41,7 @@ public class Main_Sort {
         }
         a = new int[e];
         e = 0;
-        FileUrl = new FileReader("\\hoctap\\CSD201x_AS1_fx03378\\in.txt");
+        FileUrl = new FileReader(fileUrl);
         while ((i = FileUrl.read()) != -1) {
             System.out.print(i + " ");
             a[e] = i;
@@ -124,31 +124,28 @@ public class Main_Sort {
             int j = i - 1;
             for (; j >= 0 && d[j] > temp; j--){
                 d[j + 1] = d[j];
-                //
-                try {
-                    OutputStream os = new FileOutputStream("out3.txt");
-                    for(int w : d) {
-                        os.write(w);
-                    }
-                    os.close();
-                } catch (IOException e) {
-                    System.out.println("Exception");
-                }
+
             }
             d[j + 1] = temp;
             display(d);
+        }
+        //
+        try {
+            OutputStream os = new FileOutputStream("out3.txt");
+            for(int w : d) {
+                os.write(w);
+            }
+            os.close();
+        } catch (IOException e) {
+            System.out.println("Exception");
         }
         System.out.println();
     }
 
     // linear search element in the array.
-    private static int search(int x) {
-        for(int i = 0; i < a.length; i++) {
-            if(a[i] == x) {
-                return i;
-            }
-        }
-        return -1;
+    private static void search (int x) {
+
+
     }
 
     // binary search
@@ -259,19 +256,15 @@ public class Main_Sort {
                     System.out.print("Input value: ");
                     int x = checkIntNumber();
                     System.out.println();
-                    int result = search(x);
-                    if (result == -1) {
-                        System.out.println("Result: " + x + " is not in the array");
-                    } else
-                        System.out.println("Result: " + x + " is present at index " + (result + 1) + " in the array.");
-                    System.out.println();
-                    try {
+                    //
+
+                    /*try {
                         OutputStream os = new FileOutputStream("out4.txt");
                         os.write(result + 1);
                         os.close();
                     } catch (IOException e) {
                         System.out.println("Exception");
-                    }
+                    }*/
                 }
                 case 7 -> {
                     System.out.println("Choice: 7");
