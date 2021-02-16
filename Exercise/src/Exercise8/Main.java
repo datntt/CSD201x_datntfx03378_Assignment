@@ -27,7 +27,7 @@ public class Main {
         System.out.println();
         g.breadth(1);
         System.out.println();
-        //System.out.println("Is G is connected? " + g.isConnected());
+        System.out.println("Is G is connected? " + g.isConnected());
         System.out.println();
         System.out.println("Degree of the vertex A in G is " + g.degree(0));
     }

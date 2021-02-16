@@ -37,16 +37,17 @@ public class Graph {
     // Mỗi khi lấy đỉnh ra khỏi queue thì hiển thị đỉnh đó ra hình.
     void breadth(int k) {
         MyQueue q = new MyQueue();
-        for(int i = 0; i < n; i++) {
-            if(a[i][k] != 0) {
-                q.enqueue(i);
-                for(int j = i; j < n; j++) {
-                    if(a[i][j] != 0 && j != k) {
-                        q.enqueue(j);
-                        visit(q.dequeue());
-                    }
+        boolean[] visited = new boolean[n];
+        visited[k] = true;
+        q.enqueue(k);
+        while (!q.isEmpty()) {
+            k = q.dequeue();
+            System.out.print(k + " ");
+            for (int i = 0; i < n; i++) {
+                if(a[i][k] != 0 && !visited[i]) {
+                    visited[i] = true;
+                    q.enqueue(i);
                 }
-
             }
         }
 
@@ -54,7 +55,16 @@ public class Graph {
 
 
     // Hàm kiểm tra tính liên thông của đồ thị.
-    //boolean isConnected() { }
+    boolean isConnected() {
+        for(int i = 0; i < a.length; i++) {
+            for(int j = 0; j < a[i].length; j++) {
+                if(i != j && a[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 
     // Hàm tính bậc của đỉnh k
