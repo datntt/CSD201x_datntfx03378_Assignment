@@ -29,9 +29,6 @@ public class Graph {
             }
         }
     }
-    void visit(int i) {
-        System.out.print(i + " ");
-    }
 
     // Hàm duyệt theo BFS bắt đầu tại đỉnh k bằng cách sử dụng MyQueue.
     // Mỗi khi lấy đỉnh ra khỏi queue thì hiển thị đỉnh đó ra hình.
@@ -56,13 +53,6 @@ public class Graph {
 
     // Hàm kiểm tra tính liên thông của đồ thị.
     boolean isConnected() {
-        for(int i = 0; i < a.length; i++) {
-            for(int j = 0; j < a[i].length; j++) {
-                if(i != j && a[i][j] != 0) {
-                    return false;
-                }
-            }
-        }
         return true;
     }
 
