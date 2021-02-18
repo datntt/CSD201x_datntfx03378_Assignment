@@ -41,7 +41,7 @@ public class Graph {
             k = q.dequeue();
             System.out.print(k + " ");
             for (int i = 0; i < n; i++) {
-                if(a[i][k] != 0 && !visited[i]) {
+                if(a[i][k] == 1 && !visited[i]) {
                     visited[i] = true;
                     q.enqueue(i);
                 }
@@ -49,11 +49,19 @@ public class Graph {
         }
 
     }
-
-
     // Hàm kiểm tra tính liên thông của đồ thị.
     boolean isConnected() {
-        return true;
+        boolean[] visited = new boolean[n];
+        int m = 0;
+        if(m < n) {
+            visited[m] = true;
+        }
+        for(int i = 0; i < n; i++) {
+            if(a[m][i] != 0  && !visited[i])
+                return true;
+        }
+        return false;
+
     }
 
 
