@@ -19,6 +19,9 @@ public class Graph {
             }
         }
     }
+    void visit(int i) {
+        System.out.print(i+" ");
+    }
     void displayAdj() {
         int i, j;
         System.out.println("The adjacency matrix: ");
@@ -39,7 +42,7 @@ public class Graph {
         q.enqueue(k);
         while (!q.isEmpty()) {
             k = q.dequeue();
-            System.out.print(k + " ");
+            visit(k);
             for (int i = 0; i < n; i++) {
                 if(a[i][k] == 1 && !visited[i]) {
                     visited[i] = true;
@@ -52,16 +55,11 @@ public class Graph {
     // Hàm kiểm tra tính liên thông của đồ thị.
     boolean isConnected() {
         boolean[] visited = new boolean[n];
-        int m = 0;
-        if(m < n) {
-            visited[m] = true;
+        int k;
+        for(k = 0; k < n; k++) {
+            breadth(k);
         }
-        for(int i = 0; i < n; i++) {
-            if(a[m][i] != 0  && !visited[i])
-                return true;
-        }
-        return false;
-
+        return true;
     }
 
 
