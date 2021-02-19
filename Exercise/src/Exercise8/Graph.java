@@ -1,6 +1,7 @@
 package Exercise8;
 
 
+import java.util.Stack;
 
 public class Graph {
     int[] [] a;
@@ -50,18 +51,48 @@ public class Graph {
                 }
             }
         }
-
     }
+
     // Hàm kiểm tra tính liên thông của đồ thị.
     boolean isConnected() {
-        boolean[] visited = new boolean[n];
-        int k;
-        for(k = 0; k < n; k++) {
-            breadth(k);
+        int k = 0;
+        int[] visit = new int[n];
+        MyQueue q = new MyQueue();
+        visit[k] = 1;
+        q.enqueue(k);
+        while (!q.isEmpty()) {
+            k = q.dequeue();
+            for (int j = 0; j < n; j++) {
+                if ((a[k][j] > 0) && visit[j] != 1) {
+                    visit[j] = 1;
+                    q.enqueue(j);
+                }
+            }
         }
+        //
+        for (int i : visit)
+            if (i != 1)
+                return false;
         return true;
     }
 
+    // hàm duyệt theo dfs.
+    void depth(int k) {
+        Stack<Integer> stack = new Stack<Integer>();
+        boolean[] visited = new boolean[n];
+        visited[k] = true;
+        stack.push(k);
+        while (!stack.isEmpty()) {
+            k = stack.pop();
+            visit(k);
+            for(int i = 0; i < n; i++) {
+                if(a[k][i] == 1 && !visited[i]) {
+                    visited[i] = true;
+                    stack.push(i);
+                }
+            }
+        }
+    }
 
     // Hàm tính bậc của đỉnh k
     int degree(int k) {

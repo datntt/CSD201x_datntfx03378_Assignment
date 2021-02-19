@@ -16,16 +16,20 @@ public class Main {
             }
         }*/
         int[][] b = {
-                {0,1,1,0,1},
-                {1,0,1,0,0},
-                {1,1,0,1,0},
-                {0,0,1,0,0},
-                {1,0,0,0,0}
+                {0,1,1,0,0,1},
+                {1,0,1,0,0,1},
+                {1,1,0,1,0,1},
+                {0,0,1,0,0,1},
+                {0,0,0,0,0,0},
+                {1,1,1,1,0,0}
+
         };
         g.setData(b);
         g.displayAdj();
         System.out.println();
         g.breadth(1);
+        System.out.println();
+        g.depth(1);
         System.out.println();
         if(g.isConnected()) {
             System.out.println("G is connected.");
