@@ -1,19 +1,19 @@
 public class Node{
-    private Staff info;
+    private Person info;
     private Node left, right;
 
     // constructor
     public Node() {}
-    public Node(Staff info) {
+    public Node(Person info) {
         this.info = info;
         left = right = null;
     }
 
-    public Staff getInfo() {
+    public Person getInfo() {
         return info;
     }
 
-    public void setInfo(Staff info) {
+    public void setInfo(Person info) {
         this.info = info;
     }
 

@@ -1,10 +1,10 @@
 import java.util.Objects;
 
-public class Staff {
+public class Person {
     private String ID, name, birthplace, dob;
-    public Staff() {}
+    public Person() {}
 
-    public Staff(String ID, String name, String birthplace, String dob) {
+    public Person(String ID, String name, String birthplace, String dob) {
         this.ID = ID;
         this.name = name;
         this.birthplace = birthplace;

@@ -1,16 +1,14 @@
-import java.util.LinkedList;
 import java.util.Scanner;
 
-public class MyStaff {
-    MyBTree tree;
+public class MyPerson {
+    MyBSTree tree;
     Scanner sc;
     // constructor
-    public MyStaff() {
-        tree = new MyBTree();
+    public MyPerson() {
+        tree = new MyBSTree();
     }
 
     public void insert() {
-        MyQueue list = new MyQueue();
         // input id
         sc = new Scanner(System.in);
         System.out.print("Input ID: ");
@@ -27,14 +25,11 @@ public class MyStaff {
         // check
 
         // insert date into tree
-        tree.insert(new Staff(id, name, birthplace, dob));
-        list.enqueue();
-
-        System.out.println("------------------------------------------");
+        tree.insert(new Person(id, name, birthplace, dob));
     }
     // in-order traverse
     public void inOrder() {
-
+        tree.inOrder(tree.root);
     }
 
 

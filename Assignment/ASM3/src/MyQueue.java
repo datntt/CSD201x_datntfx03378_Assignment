@@ -9,7 +9,7 @@ public class MyQueue {
     }
     public Object dequeue() throws Exception {
         if(isEmpty()) throw new Exception();
-        return new Staff();
+        return new Person();
     }
 
     public Object front() throws Exception {

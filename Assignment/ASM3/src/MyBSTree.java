@@ -1,6 +1,6 @@
-public class MyBTree {
+public class MyBSTree {
     Node root;
-    MyBTree() {
+    MyBSTree() {
         root = null;
     }
 
@@ -32,8 +32,8 @@ public class MyBTree {
     }
 
     //insert
-    public void insert(Staff staff) {
-        Node q = new Node(staff);
+    public void insert(Person person) {
+        Node q = new Node(person);
         if(isEmpty()) {
             root = q;
             return;
@@ -42,18 +42,18 @@ public class MyBTree {
         f = null;
         p = root;
         while (p != null) {
-            if(p.getInfo().getID().equals(staff.getID())) {
+            if(p.getInfo().getID().equals(person.getID())) {
                 System.out.println("ID already exists, cannot insert...");
             }
             f = p;
-            if(CharSequence.compare(p.getInfo().getID(), staff.getID()) > 0) {
+            if(CharSequence.compare(p.getInfo().getID(), person.getID()) > 0) {
                 p = p.getLeft();
             } else {
                 p = p.getRight();
             }
         }
         assert f != null;
-        if(CharSequence.compare(f.getInfo().getID(), staff.getID()) > 0) {
+        if(CharSequence.compare(f.getInfo().getID(), person.getID()) > 0) {
             f.setLeft(q);
         } else {
             f.setRight(q);
