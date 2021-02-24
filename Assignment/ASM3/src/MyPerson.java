@@ -29,7 +29,11 @@ public class MyPerson {
     }
     // in-order traverse
     public void inOrder() {
-        tree.inOrder(tree.root);
+        tree.inOrder();
+    }
+    // BST
+    public void BST() {
+        tree.BST();
     }
 
 

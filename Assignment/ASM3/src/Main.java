@@ -35,6 +35,10 @@ public class Main {
                     myPerson.inOrder();
                     break;
                 case 3:
+                    myPerson.BST();
+                    break;
+                case 4:
+                    break;
             }
         }
     }
