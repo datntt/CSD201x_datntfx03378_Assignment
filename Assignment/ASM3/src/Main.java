@@ -33,6 +33,7 @@ public class Main {
                     break;
                 case 2:
                     myPerson.inOrder();
+                    System.out.println("------------------------------------------");
                     break;
                 case 3:
                     myPerson.BST();

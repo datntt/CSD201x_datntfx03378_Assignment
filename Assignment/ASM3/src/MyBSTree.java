@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.Queue;
+
 public class MyBSTree {
     Node root;
     MyBSTree() {
@@ -57,19 +61,37 @@ public class MyBSTree {
     // option 3
     // BST a tree
     public void BST(){
-        MyQueue q = new MyQueue();
-        q.enqueue(root);
-        while (!q.isEmpty()) {
-            Node node = (Node) q.dequeue();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
             System.out.println(node.getInfo());
             // left
             if(node.getLeft() != null) {
-                q.enqueue(node.getLeft());
+                queue.add(node.getLeft());
             }
             // right
             if(node.getRight() != null) {
-                q.enqueue(node.getRight());
+                queue.add(node.getRight());
             }
+        }
+    }
+
+    //
+    public void BSTTree(){
+        if(root == null)
+            return;
+        MyQueue q = new MyQueue();
+        q.enqueue(root);
+        Node p;
+        while (!q.isEmpty()) {
+            p = (Node) q.dequeue();
+            System.out.println(p.getInfo());
+            if(p.getLeft() != null)
+                q.enqueue(p.getLeft());
+            if(p.getRight() != null)
+                q.enqueue(p.getRight());
+
         }
     }
 

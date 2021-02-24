@@ -32,8 +32,8 @@ public class MyPerson {
         tree.inOrder();
     }
     // BST
-    public void BST() {
-        tree.BST();
+    public void BST(){
+        tree.BSTTree();
     }
 
 
