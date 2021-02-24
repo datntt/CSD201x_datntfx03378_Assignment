@@ -1,7 +1,3 @@
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Queue;
-
 public class MyBSTree {
     Node root;
     MyBSTree() {
@@ -61,24 +57,6 @@ public class MyBSTree {
     // option 3
     // BST a tree
     public void BST(){
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            System.out.println(node.getInfo());
-            // left
-            if(node.getLeft() != null) {
-                queue.add(node.getLeft());
-            }
-            // right
-            if(node.getRight() != null) {
-                queue.add(node.getRight());
-            }
-        }
-    }
-
-    //
-    public void BSTTree(){
         if(root == null)
             return;
         MyQueue q = new MyQueue();
@@ -95,24 +73,20 @@ public class MyBSTree {
         }
     }
 
-
     // option 4
     // search
-    public void search (Node p, String key) {
-        if(p.getInfo().getID() == null) {
-            System.out.println("Not found ID");
-            return;
+    public Node search (Node p, String key) {
+        if(p == null) {
+            return null;
         }
         if(p.getInfo().getID().equals(key)) {
-            System.out.println(p.getInfo());
-            return;
+            return p;
         }
-        if(CharSequence.compare(p.getInfo().getID(), key) > 0) {
-            search(p.getLeft(), key);
+        if(CharSequence.compare(key, p.getInfo().getID()) > 0) {
+            return search(p.getLeft(), key);
         } else {
-            search(p.getRight(), key);
+            return search(p.getRight(), key);
         }
-
     }
 
 }

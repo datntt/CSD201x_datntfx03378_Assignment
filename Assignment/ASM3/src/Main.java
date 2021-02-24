@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc;
+    public static void end() {
+        System.out.println("------------------------------------------");
+    }
     public static void main(String[] args) {
         sc = new Scanner(System.in);
         MyPerson myPerson = new MyPerson();
@@ -29,16 +32,21 @@ public class Main {
             switch (choice) {
                 case 1:
                     myPerson.insert();
-                    System.out.println("------------------------------------------");
+                    end();
                     break;
                 case 2:
                     myPerson.inOrder();
-                    System.out.println("------------------------------------------");
+                    end();
                     break;
                 case 3:
                     myPerson.BST();
+                    end();
                     break;
                 case 4:
+                    myPerson.search();
+                    end();
+                    break;
+                case 5:
                     break;
             }
         }

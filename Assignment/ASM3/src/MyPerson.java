@@ -33,7 +33,21 @@ public class MyPerson {
     }
     // BST
     public void BST(){
-        tree.BSTTree();
+        tree.BST();
+    }
+    // search
+    public void search() {
+        sc = new Scanner(System.in);
+        System.out.print("Search for ID: ");
+        String id = sc.nextLine();
+        Node p = tree.search(tree.root, id);
+        if(p != null) {
+            System.out.println(p.getInfo());
+        } else {
+            System.out.println("Id not found.");
+        }
+
+
     }
 
 
