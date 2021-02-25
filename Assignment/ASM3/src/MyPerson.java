@@ -25,7 +25,7 @@ public class MyPerson {
         String dob = sc.nextLine();
         // check
 
-        // insert date into tree
+        // insert person into tree
         tree.insert(new Person(id, name, birthplace, dob));
     }
     // in-order traverse
@@ -56,5 +56,10 @@ public class MyPerson {
         tree.deleteID(id);
     }
     // balance
+    public void balance() {
+        tree.balance();
+        Person root = tree.middle();
+        tree.insert(root);
+    }
 
 }

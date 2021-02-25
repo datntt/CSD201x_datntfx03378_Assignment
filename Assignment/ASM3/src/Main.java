@@ -48,10 +48,14 @@ public class Main {
                     break;
                 case 5:
                     myPerson.delete();
-                    System.out.println("Succession!");
+                    System.out.println("Deleted!");
                     end();
                     break;
                 case 6:
+                    myPerson.balance();
+                    end();
+                    break;
+                case 7:
                     break;
             }
         }

@@ -8,13 +8,6 @@ public class Node{
         this.info = info;
         left = right = null;
     }
-    // node value smallest
-    public Integer smallest() {
-        if(left == null) {
-            return info.getId();
-        }
-        return this.left.smallest();
-    }
 
     public Person getInfo() {
         return info;

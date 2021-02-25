@@ -1,7 +1,12 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class MyBSTree {
     Node root;
+    ArrayList<Person> list;
     MyBSTree() {
         root = null;
+        list = new ArrayList<>();
     }
 
     // isEmpty
@@ -131,11 +136,31 @@ public class MyBSTree {
 
     // option 6
     //  balancing tree
-    public Integer smallest() {
-        if(this.root != null) {
-            return root.smallest();
-        }
-        return null;
+
+    public void balance() {
+        deleteTree(root);
+
+
     }
+    // clear tree
+    public void deleteTree(Node p) {
+        root = null;
+    }
+    //
+    public Person middle() {
+        copyTree(root);
+        return list.get((list.size() - 1) / 2);
+
+    }
+
+    // copy
+    public void copyTree(Node p) {
+        if(p != null) {
+            copyTree(p.getLeft());
+            list.add(p.getInfo());
+            copyTree(p.getRight());
+        }
+    }
+
 
 }
