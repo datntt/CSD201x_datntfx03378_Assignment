@@ -47,6 +47,11 @@ public class Main {
                     end();
                     break;
                 case 5:
+                    myPerson.delete();
+                    System.out.println("Succession!");
+                    end();
+                    break;
+                case 6:
                     break;
             }
         }

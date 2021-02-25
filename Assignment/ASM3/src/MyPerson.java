@@ -12,7 +12,8 @@ public class MyPerson {
         // input id
         sc = new Scanner(System.in);
         System.out.print("Input ID: ");
-        String id = sc.nextLine();
+        int id = sc.nextInt();
+        sc.nextLine();
         // input name
         System.out.print("Input name: ");
         String name = sc.nextLine();
@@ -39,21 +40,19 @@ public class MyPerson {
     public void search() {
         sc = new Scanner(System.in);
         System.out.print("Search for ID: ");
-        String id = sc.nextLine();
+        int id = sc.nextInt();
         Node p = tree.search(tree.root, id);
         if(p != null) {
             System.out.println(p.getInfo());
         } else {
             System.out.println("Id not found.");
         }
-
-
     }
-
-
-
-
-
-
-
+    // delete
+    public void delete() {
+        sc = new Scanner(System.in);
+        System.out.print("Delete for ID: ");
+        int id = sc.nextInt();
+        tree.deleteID(id);
+    }
 }

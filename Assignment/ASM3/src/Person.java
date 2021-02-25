@@ -1,22 +1,23 @@
 import java.util.Objects;
 
 public class Person {
-    private String ID, name, birthplace, dob;
+    private int id;
+    private String name, birthplace, dob;
     public Person() {}
 
-    public Person(String ID, String name, String birthplace, String dob) {
-        this.ID = ID;
+    public Person(int id, String name, String birthplace, String dob) {
+        this.id = id;
         this.name = name;
         this.birthplace = birthplace;
         this.dob = dob;
     }
 
-    public String getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,6 +47,6 @@ public class Person {
     // display
     @Override
     public String toString() {
-        return String.format("%-10s %-10s %-20s %-10s", ID,name,dob,birthplace);
+        return String.format("%-10s %-10s %-20s %-10s", id,name,dob,birthplace);
     }
 }
