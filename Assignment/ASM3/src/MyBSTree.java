@@ -90,11 +90,11 @@ public class MyBSTree {
     }
 
     // option 5
-    // delete
+    // delete with Id
     public void deleteID(int key) {
         root = delete(root, key);
     }
-
+    // delete node
     public Node delete(Node p, int key) {
         // tree is empty
         if(p == null)
@@ -119,7 +119,6 @@ public class MyBSTree {
         }
         return p;
     }
-
     // min node
     public Person minValue(Node p) {
         Person min = p.getInfo();
@@ -128,6 +127,15 @@ public class MyBSTree {
             p = p.getLeft();
         }
         return min;
+    }
+
+    // option 6
+    //  balancing tree
+    public Integer smallest() {
+        if(this.root != null) {
+            return root.smallest();
+        }
+        return null;
     }
 
 }

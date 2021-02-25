@@ -55,4 +55,6 @@ public class MyPerson {
         int id = sc.nextInt();
         tree.deleteID(id);
     }
+    // balance
+
 }
