@@ -30,7 +30,15 @@ public class MyPerson {
     }
     // in-order traverse
     public void inOrder() {
-        tree.inOrder();
+        tree.inOrder(tree.root);
+    }
+    // in-order traverse
+    public void preOrder() {
+        tree.preOrder(tree.root);
+    }
+    // in-order traverse
+    public void postOrder() {
+        tree.postOrder(tree.root);
     }
     // BST
     public void BST(){
@@ -58,8 +66,6 @@ public class MyPerson {
     // balance
     public void balance() {
         tree.balance();
-        Person root = tree.middle();
-        tree.insert(root);
     }
 
 }

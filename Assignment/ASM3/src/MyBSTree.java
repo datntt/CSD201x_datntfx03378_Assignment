@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MyBSTree {
     Node root;
@@ -48,6 +47,7 @@ public class MyBSTree {
 
     // option 2
     // inorder a tree
+    // left > root > right
     public void inOrder(Node p) {
         if(p == null)
             return;
@@ -55,11 +55,26 @@ public class MyBSTree {
         System.out.println(p.getInfo());
         inOrder(p.getRight());
     }
-    public void inOrder() {
-        inOrder(root);
+    // option 3
+    // preorder root > left > right
+    public void preOrder(Node p) {
+        if(p == null)
+            return;
+        System.out.println(p.getInfo());
+        preOrder(p.getLeft());
+        preOrder(p.getRight());
+    }
+    // option 4
+    // postorder left > root > right
+    public void postOrder(Node p) {
+        if(p == null)
+            return;
+        postOrder(p.getLeft());
+        postOrder(p.getRight());
+        System.out.println(p.getInfo());
     }
 
-    // option 3
+    // option 5
     // BST a tree
     public void BST(){
         if(root == null)
@@ -78,7 +93,7 @@ public class MyBSTree {
         }
     }
 
-    // option 4
+    // option 6
     // search
     public Node search (Node p, int key) {
         if(p == null) {
@@ -94,7 +109,7 @@ public class MyBSTree {
         }
     }
 
-    // option 5
+    // option 7
     // delete with Id
     public void deleteID(int key) {
         root = delete(root, key);
@@ -134,32 +149,39 @@ public class MyBSTree {
         return min;
     }
 
-    // option 6
+    // option 8
     //  balancing tree
+    public void balance(ArrayList<Person> data, int first, int last) {
+
+        if(first <= last) {
+            int middle = (first + last) / 2;
+
+            insert(data.get(middle));
+
+            balance(data, first,middle - 1);
+
+            balance(data,middle + 1, last);
+        }
+    }
 
     public void balance() {
-        deleteTree(root);
-
-
+        copyTree(root);
+        balance(list, 0, list.size() - 1);
     }
+
     // clear tree
-    public void deleteTree(Node p) {
+    public void deleteTree() {
         root = null;
     }
-    //
-    public Person middle() {
-        copyTree(root);
-        return list.get((list.size() - 1) / 2);
 
-    }
-
-    // copy
+    // copy sort delete.
     public void copyTree(Node p) {
         if(p != null) {
             copyTree(p.getLeft());
             list.add(p.getInfo());
             copyTree(p.getRight());
         }
+        deleteTree();
     }
 
 
