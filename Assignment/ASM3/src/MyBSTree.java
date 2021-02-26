@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class MyBSTree {
     Node root;
     ArrayList<Person> list;
+    static boolean check = false; // check balance
     MyBSTree() {
         root = null;
         list = new ArrayList<>();
@@ -165,8 +166,15 @@ public class MyBSTree {
     }
 
     public void balance() {
+        // check balance.
+        if (check) {
+            System.out.println("Tree has been balanced !");
+            return;
+        }
+
         copyTree(root);
         balance(list, 0, list.size() - 1);
+        check = true;
     }
 
     // clear tree
@@ -183,6 +191,4 @@ public class MyBSTree {
         }
         deleteTree();
     }
-
-
 }
