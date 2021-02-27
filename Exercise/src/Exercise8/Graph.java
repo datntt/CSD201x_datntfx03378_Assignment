@@ -21,7 +21,14 @@ public class Graph {
         }
     }
     void visit(int i) {
-        System.out.print(i+" ");
+        //System.out.print(i+" ");
+        switch (i) {
+            case 0 -> System.out.print("A");
+            case 1 -> System.out.print("B");
+            case 2 -> System.out.print("C");
+            case 3 -> System.out.print("D");
+            case 4 -> System.out.print("E");
+        }
     }
     void displayAdj() {
         int i, j;
@@ -44,6 +51,7 @@ public class Graph {
         while (!q.isEmpty()) {
             k = q.dequeue();
             visit(k);
+            //System.out.print(k+" ");
             for (int i = 0; i < n; i++) {
                 if(a[i][k] == 1 && !visited[i]) {
                     visited[i] = true;
@@ -84,7 +92,8 @@ public class Graph {
         stack.push(k);
         while (!stack.isEmpty()) {
             k = stack.pop();
-            visit(k);
+            //visit(k);
+            System.out.print(k+" ");
             for(int i = 0; i < n; i++) {
                 if(a[k][i] == 1 && !visited[i]) {
                     visited[i] = true;
