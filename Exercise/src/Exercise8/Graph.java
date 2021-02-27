@@ -50,8 +50,8 @@ public class Graph {
         q.enqueue(k);
         while (!q.isEmpty()) {
             k = q.dequeue();
-            visit(k);
-            //System.out.print(k+" ");
+            //visit(k);
+            System.out.print(k+" ");
             for (int i = 0; i < n; i++) {
                 if(a[i][k] == 1 && !visited[i]) {
                     visited[i] = true;

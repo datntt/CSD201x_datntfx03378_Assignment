@@ -4,8 +4,8 @@ import java.util.*;
 public class Graph {
     int[][] a;
     int n;
-    static int INF = 9999;
     static File urlData = new File("src\\Matran.txt");
+
 
     Graph () {
         n = 7;
@@ -38,7 +38,7 @@ public class Graph {
     }
     public void printMatrix() throws IOException {
         readFile();
-        System.out.println("The adjacency matrix: ");
+        System.out.println("Weight matrix: ");
         for(int i = 0; i < 7; i++) {
             for(int j = 0; j < 7; j++) {
                 System.out.printf("%10d", a[i][j]);
@@ -59,6 +59,26 @@ public class Graph {
         }
     }
 
+    // depth graph from vertices k
+    public void depth(int k) {
+        System.out.print("DFS_Graph: ");
+        Stack<Integer> stack = new Stack<>();
+        boolean[] visited = new boolean[n];
+        visited[k] = true;
+        stack.push(k);
+        while (!stack.isEmpty()) {
+            k = stack.pop();
+            visit(k);
+            //System.out.print(k + " ");
+            for(int i = 0; i < n; i++) {
+                if(a[k][i] != 9999 && !visited[i]) {
+                    visited[i] = true;
+                    stack.push(i);
+                }
+            }
+        }
+    }
+
     // breadth graph from vertices k
     public void breath(int k) {
         System.out.print("BFS_Graph: ");
@@ -70,32 +90,11 @@ public class Graph {
             k = queue.poll();
             visit(k);
             for (int i = 0; i < n; i++) {
-                if(a[i][k] != 9999 && !visited[i]) {
+                if(a[k][i] != 9999 && !visited[i]) {
                     visited[i] = true;
                     queue.add(i);
                 }
             }
         }
     }
-    // depth graph from vertices k
-    public void depth(int k) {
-        System.out.print("DFS_Graph: ");
-        Stack<Integer> stack = new Stack<>();
-        boolean[] visited = new boolean[n];
-        visited[k] = true;
-        stack.push(k);
-        while (!stack.isEmpty()) {
-            k = stack.pop();
-            visit(k);
-            for(int i = 0; i < n; i++) {
-                if(a[i][k] != 9999 && !visited[i]) {
-                    visited[i] = true;
-                    stack.push(i);
-                }
-            }
-        }
-
-    }
-
-
 }

@@ -23,8 +23,8 @@ public class Main {
             System.out.println("7. Delete by Person ID");
             System.out.println("8. Balancing Binary Search Tree");
             System.out.println("9. Display adjacency matrix from file");
-            System.out.println("10. BFS_Graph");
-            System.out.println("11. DFS_Graph");
+            System.out.println("10. DFS_Graph");
+            System.out.println("11. BFS_Graph");
             System.out.println("12. Dijkstra");
             System.out.println("13. Exit");
             System.out.println();
@@ -74,12 +74,12 @@ public class Main {
                     end();
                     break;
                 case 10:
-                    g.breath(0);
+                    g.depth(0);
                     System.out.println();
                     end();
                     break;
                 case 11:
-                    g.depth(0);
+                    g.breath(0);
                     System.out.println();
                     end();
                     break;
