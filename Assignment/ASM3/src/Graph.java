@@ -4,12 +4,16 @@ import java.util.*;
 public class Graph {
     int[][] a;
     int n;
+    ArrayList<Integer> listVisited;
+    int[] visited;
+    // file
     static File urlData = new File("src\\Matran.txt");
-
 
     Graph () {
         n = 7;
         a = new int[n][n];
+        listVisited = new ArrayList<>();
+        visited = new int[n];
     }
     public void readFile() throws IOException {
         FileInputStream fileInputStream = new FileInputStream(urlData);
@@ -36,6 +40,8 @@ public class Graph {
         }
 
     }
+    // option 9
+    // print matrix from file.
     public void printMatrix() throws IOException {
         readFile();
         System.out.println("Weight matrix: ");
@@ -47,6 +53,7 @@ public class Graph {
         }
     }
     // visit
+    // print vertices according ABC...
     public void visit(int i) {
         switch (i) {
             case 0 -> System.out.print("A");
@@ -59,28 +66,23 @@ public class Graph {
         }
     }
 
-    // depth graph from vertices k
-    public void depth(int k) {
-        System.out.print("DFS_Graph: ");
-        Stack<Integer> stack = new Stack<>();
-        boolean[] visited = new boolean[n];
-        visited[k] = true;
-        stack.push(k);
-        while (!stack.isEmpty()) {
-            k = stack.pop();
-            visit(k);
-            //System.out.print(k + " ");
-            for(int i = 0; i < n; i++) {
-                if(a[k][i] != 9999 && !visited[i]) {
-                    visited[i] = true;
-                    stack.push(i);
-                }
+    // option 10
+    // depth from vertices k
+    // use recursive
+    public void DFS(int k) {
+        visited[k] = 1;
+        listVisited.add(k);
+        visit(k);
+        for(int i = 0; i < n; i++) {
+            if(a[k][i] > 0 && a[k][i] != 9999 & visited[i] != 1) {
+                DFS(i);
             }
         }
+
     }
 
     // breadth graph from vertices k
-    public void breath(int k) {
+    public void BFS(int k) {
         System.out.print("BFS_Graph: ");
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n];

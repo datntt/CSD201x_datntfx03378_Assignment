@@ -74,12 +74,13 @@ public class Main {
                     end();
                     break;
                 case 10:
-                    g.depth(0);
+                    System.out.print("DFS_Graph: ");
+                    g.DFS(0);
                     System.out.println();
                     end();
                     break;
                 case 11:
-                    g.breath(0);
+                    g.BFS(0);
                     System.out.println();
                     end();
                     break;
