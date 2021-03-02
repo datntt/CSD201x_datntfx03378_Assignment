@@ -66,7 +66,7 @@ public class Graph {
         }
     }
 
-    // option 10
+    // option 10 DFS
     // depth from vertices k
     // use recursive
     public void DFS(int k) {
@@ -81,6 +81,7 @@ public class Graph {
 
     }
 
+    // option 11 BFS
     // breadth graph from vertices k
     public void BFS(int k) {
         System.out.print("BFS_Graph: ");
@@ -98,5 +99,55 @@ public class Graph {
                 }
             }
         }
+    }
+
+    // option 12
+    // dijkstra from A to E
+    public int minDistance(int[] array, Boolean[] visited) {
+        int min = Integer.MAX_VALUE;
+        int min_index = - 1;
+        for(int i = 0; i < n; i++) {
+            if(!visited[i] && array[i] <= min) {
+                min = array[i];
+                min_index = i;
+            }
+        }
+        return min_index;
+    }
+    // The length of shortest path
+    void printPath(int[] dist, int x) {
+        System.out.print("The length of shortest path from A to  E is ");
+        int result = 0;
+        for (int i = 0; i < x; i++) {
+            result = i;
+        }
+        System.out.println(dist[result]);
+    }
+
+    public void dijkstra(int src, int x) {
+        int[] dist = new int[n];
+        Boolean[] visited = new Boolean[n];
+        for (int i = 0; i < n; i++) {
+            dist[i] = Integer.MAX_VALUE;
+            visited[i] = false;
+        }
+        dist[src] = 0;
+
+        for (int count = 0; count < x; count++) {
+
+            int u = minDistance(dist, visited);
+            visited[u] = true;
+            for (int v = 0; v < x; v++) {
+                if (!visited[v] && a[u][v] != 0 &&
+                        dist[u] != Integer.MAX_VALUE &&
+                        dist[u] + a[u][v] < dist[v]) {
+
+                    dist[v] = dist[u] + a[u][v];
+                }
+            }
+        }
+
+        // The length of shortest path
+        printPath(dist, x);
     }
 }
