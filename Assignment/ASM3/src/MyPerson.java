@@ -23,7 +23,6 @@ public class MyPerson {
         // input dob
         System.out.print("Input date of birth: ");
         String dob = sc.nextLine();
-        // check
 
         // insert person into tree
         tree.insert(new Person(id, name, birthplace, dob));

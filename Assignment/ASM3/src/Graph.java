@@ -77,7 +77,6 @@ public class Graph {
             case 6 -> System.out.print("->G");
         }
     }
-
     // option 10 DFS
     // depth from vertices k
     // use recursive
@@ -112,10 +111,8 @@ public class Graph {
             }
         }
     }
-
     // option 12
     // dijkstra from A to E
-
     // minimum distance value.
     public int minDistance(int[] array, Boolean[] visited) {
         int min = Integer.MAX_VALUE;
@@ -136,11 +133,11 @@ public class Graph {
         printPath(dist[current], dist);
         visitPath(current);
     }
-
+    // print result
     void printResult(int start, int end, int[] dist, int[] parent) {
         System.out.print("Vertex\t Distance \n");
         int result = 0;
-        for (int vertexIndex = 0; vertexIndex < n; vertexIndex++) {
+        for (int vertexIndex = 0; vertexIndex < end + 1; vertexIndex++) {
             result = vertexIndex;
         }
         if (result != start && end < dist.length) {
@@ -153,7 +150,7 @@ public class Graph {
             System.out.println();
         }
     }
-
+    // dijkstra
     public void dijkstra(int start, int end) {
         int[] dist = new int[n];
         int[] parent = new int[n]; // parent

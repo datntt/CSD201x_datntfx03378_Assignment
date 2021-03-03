@@ -37,7 +37,6 @@ public class MyBSTree {
                 p = p.getRight();
             }
         }
-        //System.out.println(f.getInfo());
         assert f != null;
         if(f.getInfo().getId() > person.getId()) {
             f.setLeft(q);
@@ -136,7 +135,6 @@ public class MyBSTree {
             p.setInfo(minValue(p.getRight()));
             // delete the inorder
             p.setRight(delete(p.getRight(), p.getInfo().getId()));
-
         }
         return p;
     }
@@ -153,12 +151,9 @@ public class MyBSTree {
     // option 8
     //  balancing tree
     public void balance(ArrayList<Person> data, int first, int last) {
-
         if(first <= last) {
             int middle = (first + last) / 2;
-
             insert(data.get(middle));
-
             balance(data, first,middle - 1);
 
             balance(data,middle + 1, last);
