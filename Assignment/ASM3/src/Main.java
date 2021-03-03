@@ -85,7 +85,7 @@ public class Main {
                     end();
                     break;
                 case 12:
-                    g.dijkstra(0, 5);
+                    g.dijkstra(0, 4);
                     end();
                     break;
             }

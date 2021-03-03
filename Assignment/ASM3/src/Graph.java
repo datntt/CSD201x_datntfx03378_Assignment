@@ -65,6 +65,18 @@ public class Graph {
             case 6 -> System.out.print("G");
         }
     }
+    // print path according
+    public void visitPath(int i) {
+        switch (i) {
+            case 0 -> System.out.print("A");
+            case 1 -> System.out.print("->B");
+            case 2 -> System.out.print("->C");
+            case 3 -> System.out.print("->D");
+            case 4 -> System.out.print("->E");
+            case 5 -> System.out.print("->F");
+            case 6 -> System.out.print("->G");
+        }
+    }
 
     // option 10 DFS
     // depth from vertices k
@@ -103,6 +115,8 @@ public class Graph {
 
     // option 12
     // dijkstra from A to E
+
+    // minimum distance value.
     public int minDistance(int[] array, Boolean[] visited) {
         int min = Integer.MAX_VALUE;
         int min_index = - 1;
@@ -115,39 +129,56 @@ public class Graph {
         return min_index;
     }
     // The length of shortest path
-    void printPath(int[] dist, int x) {
-        System.out.print("The length of shortest path from A to  E is ");
-        int result = 0;
-        for (int i = 0; i < x; i++) {
-            result = i;
+    void printPath(int current, int[] dist) {
+        if (current == -1) {
+            return;
         }
-        System.out.println(dist[result]);
+        printPath(dist[current], dist);
+        visitPath(current);
     }
 
-    public void dijkstra(int src, int x) {
+    void printResult(int start, int end, int[] dist, int[] parent) {
+        System.out.print("Vertex\t Distance \n");
+        int result = 0;
+        for (int vertexIndex = 0; vertexIndex < n; vertexIndex++) {
+            result = vertexIndex;
+        }
+        if (result != start && end < dist.length) {
+            visit(start);
+            visitPath(result);
+            System.out.print("\t\t" );
+            System.out.println(dist[result]);
+            System.out.print("Path: ");
+            printPath(result, parent);
+            System.out.println();
+        }
+    }
+
+    public void dijkstra(int start, int end) {
         int[] dist = new int[n];
+        int[] parent = new int[n]; // parent
         Boolean[] visited = new Boolean[n];
         for (int i = 0; i < n; i++) {
             dist[i] = Integer.MAX_VALUE;
             visited[i] = false;
         }
-        dist[src] = 0;
+        dist[start] = 0;
+        parent[start] = -1;
 
-        for (int count = 0; count < x; count++) {
-
+        for (int count = 0; count < n; count++) {
             int u = minDistance(dist, visited);
             visited[u] = true;
-            for (int v = 0; v < x; v++) {
+            for (int v = 0; v < n; v++) {
                 if (!visited[v] && a[u][v] != 0 &&
                         dist[u] != Integer.MAX_VALUE &&
                         dist[u] + a[u][v] < dist[v]) {
 
                     dist[v] = dist[u] + a[u][v];
+                    parent[v] = u;
                 }
             }
         }
-
-        // The length of shortest path
-        printPath(dist, x);
+        // print result
+        printResult(start, end, dist, parent);
     }
 }
