@@ -34,9 +34,12 @@ public class MergeSort {
 
     private void merge(int p, int q, int r) {
         if(!(p<=q) && (q<=r)) return;
-        int n,i,j,k; n = r -p + 1;
-        int [] b = new int[n];
-        i = p; j = q + 1; k=0;
+        int n,i,j,k;
+        n = r -p + 1;
+        int[] b = new int[n];
+        i = p;
+        j = q + 1;
+        k=0;
         while(i<=q && j<=r) {
             if(a[i]<a[j])
             b[k++] = a[i++];

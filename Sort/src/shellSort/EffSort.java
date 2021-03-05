@@ -4,7 +4,7 @@ public class EffSort {
     int[] a;
     int n;
     EffSort() {}
-    EffSort(int[] b) {
+    public EffSort(int[] b) {
         int i;
         n  = b.length;
         a = new int[n];
